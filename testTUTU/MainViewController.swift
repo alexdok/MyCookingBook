@@ -46,9 +46,7 @@ class MainViewController: UIViewController {
         button.setTitle(title, for: .normal)
         button.backgroundColor = color
         button.layer.cornerRadius = 10
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 2, height: 2)
-        button.layer.shadowOpacity = 0.5
+        button.addShadow()
         return button
     }
     
@@ -58,12 +56,21 @@ class MainViewController: UIViewController {
     }
     
     @objc func goToMyCoocingBook(sender: UIButton!) {
-        let cookingBookViewController = TableViewController()
-        navigationController?.pushViewController(cookingBookViewController, animated: true)
+        toNewController(viewController: TableViewController())
        }
     @objc func goToNewRecipe(sender: UIButton!) {
-        let newRecipeVC = NewRecipeViewController()
-        navigationController?.pushViewController(newRecipeVC, animated: true)
+        toNewController(viewController: NewRecipeViewController())
        }
     
+    func toNewController(viewController: UIViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension UIView {
+    func addShadow() {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.layer.shadowOpacity = 0.8
+    }
 }

@@ -15,6 +15,7 @@ class CustomTableViewCell: UITableViewCell {
          imageView.image = UIImage(named: "imageName")
          imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
+        imageView.backgroundColor = .green
          imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
