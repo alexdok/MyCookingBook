@@ -1,7 +1,6 @@
 import UIKit
 
 class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
     var imageView: UIImageView!
     var ingredientsButton: UIButton!
     var textView: UITextView!
@@ -40,6 +39,7 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         let buttonHeight: CGFloat = 50
         ingredientsButton = UIButton(frame: CGRect(x: 0, y: buttonY, width: view.frame.width, height: buttonHeight))
         ingredientsButton.setTitle("Ингредиенты", for: .normal)
+        ingredientsButton.addTarget(self, action: #selector(goToShoppingList), for: .touchUpInside)
         view.addSubview(ingredientsButton)
         
         // Создание UITextView
@@ -69,6 +69,13 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
+    func toNewController(viewController: UIViewController) {
+           navigationController?.pushViewController(viewController, animated: true)
+       }
+    
+    @objc func goToShoppingList(sender: UIButton!) {
+        toNewController(viewController: ShoppingListViewController())
+    }
 
     @objc func imageTapped() {
         let imagePickerController = UIImagePickerController()
@@ -106,11 +113,9 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @objc func expandButtonTapped() {
-//        textView.frame = originalTextViewFrame // Восстановление исходного размера UITextView
         textView.resignFirstResponder() // Скрытие клавиатуры
+        textView.frame = originalTextViewFrame // Восстановление исходного размера UITextView
         expandButton.isHidden = true // Скрытие кнопки расширения
-        textView.frame.origin.y = ingredientsButton.frame.maxY
-
     }
     
     @objc func keyboardWillChangeFrame(_ notification: Notification) {
