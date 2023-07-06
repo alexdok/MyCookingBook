@@ -9,7 +9,6 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,13 +76,15 @@ class MainViewController: UIViewController {
     }
     
     @objc func goToMyCoocingBook(sender: UIButton!) {
-        let cookingBookViewController = TableViewController()
-        navigationController?.pushViewController(cookingBookViewController, animated: true)
+        toNewViewController(viewController: TableViewController())
     }
     
     @objc func goToNewRecipe(sender: UIButton!) {
-        let newRecipeVC = NewRecipeViewController()
-        navigationController?.pushViewController(newRecipeVC, animated: true)
+       toNewViewController(viewController:  NewRecipeViewController())
+    }
+    
+    func toNewViewController(viewController: UIViewController) {
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }	
 
