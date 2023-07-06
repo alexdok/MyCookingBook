@@ -86,7 +86,7 @@ class MainViewController: UIViewController {
     func toNewViewController(viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }
-}	
+}
 
 //import UIKit
 //
