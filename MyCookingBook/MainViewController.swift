@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
         let button2 = createButton(title: "Смотреть записи", color: .systemBlue)
         button2.addTarget(self, action: #selector(goToMyCoocingBook), for: .touchUpInside)
         let button3 = createButton(title: "Найти что-то новое", color: .systemBlue)
+        button3.addTarget(self, action: #selector(goToRandomRecipe), for: .touchUpInside)
         
         view.addSubview(button1)
         view.addSubview(button2)
@@ -81,6 +82,11 @@ class MainViewController: UIViewController {
     
     @objc func goToNewRecipe(sender: UIButton!) {
        toNewViewController(viewController:  NewRecipeViewController())
+    }
+    
+    @objc func goToRandomRecipe(sender: UIButton!) {
+        let webViewController = WebViewController()
+       toNewViewController(viewController: webViewController)
     }
     
     func toNewViewController(viewController: UIViewController) {
