@@ -19,6 +19,7 @@
 		904A02112A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 904A020F2A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld */; };
 		904A02132A5D4DF8000C84CF /* Ingridients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A02122A5D4DF8000C84CF /* Ingridients.swift */; };
 		904A02152A5D4EFA000C84CF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A02142A5D4EFA000C84CF /* WebViewController.swift */; };
+		907E38802A5F0CC20001FBBE /* WebViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		904A02102A5D4D8E000C84CF /* MyRecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyRecipeModel.xcdatamodel; sourceTree = "<group>"; };
 		904A02122A5D4DF8000C84CF /* Ingridients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingridients.swift; sourceTree = "<group>"; };
 		904A02142A5D4EFA000C84CF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebViewController+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				901784122A56AD6600D90D67 /* SceneDelegate.swift */,
 				901784272A56ADC200D90D67 /* MainViewController.swift */,
 				904A02142A5D4EFA000C84CF /* WebViewController.swift */,
+				907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */,
 				901784292A56ADE400D90D67 /* CustomeTableViewCell.swift */,
 				9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */,
 				9017842A2A56ADE400D90D67 /* ShoppingListViewController.swift */,
@@ -158,6 +161,7 @@
 				901784302A56ADE400D90D67 /* NewRecipeViewController.swift in Sources */,
 				9017842F2A56ADE400D90D67 /* TableViewController.swift in Sources */,
 				901784112A56AD6600D90D67 /* AppDelegate.swift in Sources */,
+				907E38802A5F0CC20001FBBE /* WebViewController+extension.swift in Sources */,
 				904A02152A5D4EFA000C84CF /* WebViewController.swift in Sources */,
 				9017842E2A56ADE400D90D67 /* ShoppingListViewController.swift in Sources */,
 				901784132A56AD6600D90D67 /* SceneDelegate.swift in Sources */,
