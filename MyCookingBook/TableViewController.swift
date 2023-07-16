@@ -39,7 +39,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
         // Настройка данных для ячейки
-        cell.label1.text = "Label 1"
+        cell.label1.text = "label 1"
         cell.label2.text = "Label 2"
         cell.label3.text = "Label 3"
         cell.leftImageView.image = UIImage(named: "imageName")
@@ -53,5 +53,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         return 150
     }
     
-    // Дополнительные методы делегата, если требуется
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
