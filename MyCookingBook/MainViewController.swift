@@ -1,20 +1,16 @@
 import UIKit
 
 class MainViewController: UIViewController {
+   
+    let buttonSize = CGSize(width: 200, height: 50)
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Создаем градиентный фон
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.purple.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        view.layer.insertSublayer(gradientLayer, at: 0)
+       createBackgroundColor()
         
         // Создаем кнопки
-        let buttonSize = CGSize(width: 200, height: 50)
-        
         let button1 = createButton(title: "Новый рецепт", color: .systemBlue)
         button1.addTarget(self, action: #selector(goToNewRecipe), for: .touchUpInside)
         let button2 = createButton(title: "Смотреть записи", color: .systemBlue)
@@ -22,13 +18,12 @@ class MainViewController: UIViewController {
         let button3 = createButton(title: "Найти что-то новое", color: .systemBlue)
         button3.addTarget(self, action: #selector(goToRandomRecipe), for: .touchUpInside)
         
-        view.addSubview(button1)
-        view.addSubview(button2)
-        view.addSubview(button3)
-        
-        button1.translatesAutoresizingMaskIntoConstraints = false
-        button2.translatesAutoresizingMaskIntoConstraints = false
-        button3.translatesAutoresizingMaskIntoConstraints = false
+        let buttonsArray = [button1, button2, button3]
+        buttonsArray.forEach { button in
+            view.addSubview(button)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            applyButtonStyle(button)
+        }
         
         NSLayoutConstraint.activate([
             button1.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -46,10 +41,16 @@ class MainViewController: UIViewController {
             button3.widthAnchor.constraint(equalToConstant: buttonSize.width),
             button3.heightAnchor.constraint(equalToConstant: buttonSize.height)
         ])
-        
-        applyButtonStyle(button1)
-        applyButtonStyle(button2)
-        applyButtonStyle(button3)
+    }
+    
+    private func createBackgroundColor() {
+        // Создаем градиентный фон
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.purple.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     private func createButton(title: String, color: UIColor) -> UIButton {
