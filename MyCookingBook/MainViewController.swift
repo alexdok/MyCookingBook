@@ -3,13 +3,17 @@ import UIKit
 class MainViewController: UIViewController {
    
     let buttonSize = CGSize(width: 200, height: 50)
+    var buttonsArray: [UIButton] = []
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Создаем градиентный фон
        createBackgroundColor()
-        
+        // Создаем кнопки
+      createManualButtons()
+    }
+    
+    private func createManualButtons() {
         // Создаем кнопки
         let button1 = createButton(title: "Новый рецепт", color: .systemBlue)
         button1.addTarget(self, action: #selector(goToNewRecipe), for: .touchUpInside)
@@ -18,7 +22,6 @@ class MainViewController: UIViewController {
         let button3 = createButton(title: "Найти что-то новое", color: .systemBlue)
         button3.addTarget(self, action: #selector(goToRandomRecipe), for: .touchUpInside)
         
-        let buttonsArray = [button1, button2, button3]
         buttonsArray.forEach { button in
             view.addSubview(button)
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +64,7 @@ class MainViewController: UIViewController {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 2, height: 2)
         button.layer.shadowOpacity = 0.5
+        buttonsArray.append(button)
         return button
     }
     
