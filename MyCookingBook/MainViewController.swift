@@ -7,9 +7,7 @@ class MainViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Создаем градиентный фон
        createBackgroundColor()
-        // Создаем кнопки
       createManualButtons()
     }
     
