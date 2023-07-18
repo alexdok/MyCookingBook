@@ -17,7 +17,7 @@
 		9017842F2A56ADE400D90D67 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017842B2A56ADE400D90D67 /* TableViewController.swift */; };
 		901784302A56ADE400D90D67 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */; };
 		904A02112A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 904A020F2A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld */; };
-		904A02132A5D4DF8000C84CF /* Ingridients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A02122A5D4DF8000C84CF /* Ingridients.swift */; };
+		904A02132A5D4DF8000C84CF /* Ingridient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A02122A5D4DF8000C84CF /* Ingridient.swift */; };
 		904A02152A5D4EFA000C84CF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A02142A5D4EFA000C84CF /* WebViewController.swift */; };
 		907E38802A5F0CC20001FBBE /* WebViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */; };
 		907E38822A5F0D7D0001FBBE /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E38812A5F0D7D0001FBBE /* UIView+extension.swift */; };
@@ -36,7 +36,7 @@
 		9017842B2A56ADE400D90D67 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
 		904A02102A5D4D8E000C84CF /* MyRecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyRecipeModel.xcdatamodel; sourceTree = "<group>"; };
-		904A02122A5D4DF8000C84CF /* Ingridients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingridients.swift; sourceTree = "<group>"; };
+		904A02122A5D4DF8000C84CF /* Ingridient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingridient.swift; sourceTree = "<group>"; };
 		904A02142A5D4EFA000C84CF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebViewController+extension.swift"; sourceTree = "<group>"; };
 		907E38812A5F0D7D0001FBBE /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 				907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */,
 				9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */,
 				9017842A2A56ADE400D90D67 /* ShoppingListViewController.swift */,
-				904A02122A5D4DF8000C84CF /* Ingridients.swift */,
+				904A02122A5D4DF8000C84CF /* Ingridient.swift */,
 				904A020F2A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld */,
 				9017842B2A56ADE400D90D67 /* TableViewController.swift */,
 				901784292A56ADE400D90D67 /* CustomeTableViewCell.swift */,
@@ -172,7 +172,7 @@
 				904A02112A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld in Sources */,
 				901784282A56ADC200D90D67 /* MainViewController.swift in Sources */,
 				9017842D2A56ADE400D90D67 /* CustomeTableViewCell.swift in Sources */,
-				904A02132A5D4DF8000C84CF /* Ingridients.swift in Sources */,
+				904A02132A5D4DF8000C84CF /* Ingridient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
