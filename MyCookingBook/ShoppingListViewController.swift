@@ -125,8 +125,7 @@ class MyCustomCell: UITableViewCell {
     }
     
     private func applyButtonStyle(_ button: UIButton) {
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.textColor = .black
+        button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
     }
     
