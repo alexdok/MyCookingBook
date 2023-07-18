@@ -15,7 +15,7 @@ enum MeasuresOfMeasurement {
     }
     
     init(weight: Double) {
-        self = .weight(weight, "kg")
+        self = .weight(weight, "kilograms")
     }
     
     init(volume: Double) {
@@ -23,7 +23,7 @@ enum MeasuresOfMeasurement {
     }
     
     init(amount: Double) {
-        self = .amount(amount, "thing")
+        self = .amount(amount, "things")
     }
 }
 
