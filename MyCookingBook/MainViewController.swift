@@ -1,14 +1,14 @@
 import UIKit
 
 class MainViewController: UIViewController {
-   
+    
     let buttonSize = CGSize(width: 200, height: 50)
     var buttonsArray: [UIButton] = []
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       createBackgroundColor()
-      createManualButtons()
+        createBackgroundColor()
+        createManualButtons()
     }
     
     private func createManualButtons() {
@@ -76,12 +76,12 @@ class MainViewController: UIViewController {
     }
     
     @objc func goToNewRecipe(sender: UIButton!) {
-       toNewViewController(viewController:  NewRecipeViewController())
+        toNewViewController(viewController:  NewRecipeViewController())
     }
     
     @objc func goToRandomRecipe(sender: UIButton!) {
         let webViewController = WebViewController()
-       toNewViewController(viewController: webViewController)
+        toNewViewController(viewController: webViewController)
     }
     
     func toNewViewController(viewController: UIViewController) {

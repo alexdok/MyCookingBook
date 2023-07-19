@@ -1,6 +1,7 @@
 import UIKit
 
 class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     var imageView: UIImageView!
     var ingredientsButton: UIButton!
     var textView: UITextView!
@@ -9,14 +10,8 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.purple.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        view.layer.insertSublayer(gradientLayer, at: 0)
-        
+        setupBackgroundColor()
+
         // Создание UIImageView
         
         let screenHeight = UIScreen.main.bounds.height
@@ -29,10 +24,7 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         imageView.layer.shadowOpacity = 0.5
         view.addSubview(imageView)
         
-        // Добавление жеста нажатия на картинку
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        imageView.addGestureRecognizer(tapGesture)
-        imageView.isUserInteractionEnabled = true
+        addRecognizerTapToImage()
         
         // Создание UIButton
         let buttonY = imageView.frame.maxY
@@ -55,6 +47,23 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         textView.showsVerticalScrollIndicator = true
         textView.alwaysBounceVertical = true
         
+        addExpandButton()
+        
+        // Добавление наблюдателя для отслеживания изменений в высоте клавиатуры
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    func addButonIngrediensts() {
+        // Создание UIButton
+        let buttonY = imageView.frame.maxY
+        let buttonHeight: CGFloat = 50
+        ingredientsButton = UIButton(frame: CGRect(x: 0, y: buttonY, width: view.frame.width, height: buttonHeight))
+        ingredientsButton.setTitle("Ингредиенты", for: .normal)
+        ingredientsButton.addTarget(self, action: #selector(goToShoppingList), for: .touchUpInside)
+        view.addSubview(ingredientsButton)
+    }
+    
+    func addExpandButton() {
         // Добавление кнопки расширения
         let expandButtonSize: CGFloat = 44
         let expandButtonX = view.frame.width - expandButtonSize - 16
@@ -65,8 +74,22 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         expandButton.isHidden = true
         view.addSubview(expandButton)
         
-        // Добавление наблюдателя для отслеживания изменений в высоте клавиатуры
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    private func addRecognizerTapToImage() {
+        // Добавление жеста нажатия на картинку
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imageView.addGestureRecognizer(tapGesture)
+        imageView.isUserInteractionEnabled = true
+    }
+    
+    private func setupBackgroundColor() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.purple.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     func toNewController(viewController: UIViewController) {
@@ -122,8 +145,6 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         guard let userInfo = notification.userInfo else { return }
         
         if let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-     
-            
             // Обновление высоты UITextView при появлении клавиатуры
             let newTextViewHeight = view.frame.height 
             textView.frame.size.height = newTextViewHeight
