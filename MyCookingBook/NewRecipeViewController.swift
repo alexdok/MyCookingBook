@@ -53,6 +53,11 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        expandButtonTapped()
+    }
+    
     func addButonIngrediensts() {
         // Создание UIButton
         let buttonY = imageView.frame.maxY

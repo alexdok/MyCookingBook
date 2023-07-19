@@ -9,7 +9,7 @@ enum Units {
 class ShoppingListViewController: UIViewController {
     var selectedUnit: Units = .kilograms
     var shoppingList: [Ingridient] = []
-    var checkedItems: [Bool] = [false,false,false,false]
+    var checkedItems: [Bool] = []
      var numberOfRows = 0
     let tableView = UITableView()
     
@@ -19,6 +19,7 @@ class ShoppingListViewController: UIViewController {
         shoppingList.append(createNewitem(name: "греча", quantity: 0.5, units: .kilograms))
         shoppingList.append(createNewitem(name: "молоко", quantity: 1, units: .liters))
         shoppingList.append(createNewitem(name: "fanta", quantity: 1, units: .things))
+        checkedItems = [false,false,false,false]
 
         numberOfRows = shoppingList.count
         tableView.frame = view.bounds
@@ -47,12 +48,10 @@ class ShoppingListViewController: UIViewController {
     @objc func addButtonTapped() {
         // Действие при нажатии кнопки "Добавить"
         // Увеличиваем количество строк
-        shoppingList.append(Ingridient(type: "test", measuresOfMeasurement: .init(volume: 5)))
-        checkedItems.append(false)
-        numberOfRows += 1
         createAlertController()
-        // Обновляем таблицу
-        tableView.reloadData()
+//        shoppingList.append(Ingridient(type: "test", measuresOfMeasurement: .init(volume: 5)))
+//        checkedItems.append(false)
+       
     }
    
     
@@ -65,7 +64,7 @@ class ShoppingListViewController: UIViewController {
           }
           
           // Создаем текстовое поле для ввода количества товара
-          alert.addTextField { [weak self] textField in
+          alert.addTextField { textField in
               textField.placeholder = "Enter quantity"
               textField.keyboardType = .decimalPad
               
@@ -76,18 +75,19 @@ class ShoppingListViewController: UIViewController {
               textField.rightViewMode = .always
               
               // Обработчик события при изменении значения переключателя
-              unitsSegmentedControl.addTarget(self, action: #selector(self?.unitChanged(_:)), for: .valueChanged)
+              unitsSegmentedControl.addTarget(self, action: #selector(self.unitChanged(_:)), for: .valueChanged)
           }
           
           // Добавляем кнопку "Сохранить"
-          let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak alert] _ in
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak alert] _ in
               // Получаем введенные значения из текстовых полей
               if let nameTextField = alert?.textFields?.first, let quantityTextField = alert?.textFields?.last {
                   let itemName = nameTextField.text ?? ""
-                  let itemQuantity = Int(quantityTextField.text ?? "0") ?? 0
+                  let itemQuantity = Double(quantityTextField.text ?? "0") ?? 0
                   
                   // Вызываем функцию для сохранения товара с введенными значениями и выбранной единицей измерения
-                  self?.saveItem(name: itemName, quantity: itemQuantity, unit: self?.selectedUnit)
+                  guard let self = self else { return }
+                  self.saveItem(name: itemName, quantity: itemQuantity, unit: self.selectedUnit)
               }
           }
           
@@ -116,22 +116,27 @@ class ShoppingListViewController: UIViewController {
           }
       }
       
-      func saveItem(name: String, quantity: Int, unit: Units?) {
-          // Ваш код для сохранения товара
-          // Здесь можно выполнить нужные вам действия с введенными значениями и выбранной единицей измерения
-          if let selectedUnit = unit {
-              switch selectedUnit {
-              case .kilograms:
-                  // Добавить обработку для единицы измерения килограмм
-                  print("\(quantity) kg of \(name)")
-              case .liters:
-                  // Добавить обработку для единицы измерения литры
-                  print("\(quantity) L of \(name)")
-              case .things:
-                  // Добавить обработку для единицы измерения штуки
-                  print("\(quantity) pcs of \(name)")
-              }
-          }
+      func saveItem(name: String, quantity: Double, unit: Units) {
+        let newItem = createNewitem(name: name, quantity: quantity, units: unit)
+          shoppingList.append(newItem)
+          checkedItems.append(false)
+          numberOfRows += 1
+          
+          // Обновляем таблицу
+          tableView.reloadData()
+//          if let selectedUnit = unit {
+//              switch selectedUnit {
+//              case .kilograms:
+//                  // Добавить обработку для единицы измерения килограмм
+//                  print("\(quantity) kg of \(name)")
+//              case .liters:
+//                  // Добавить обработку для единицы измерения литры
+//                  print("\(quantity) L of \(name)")
+//              case .things:
+//                  // Добавить обработку для единицы измерения штуки
+//                  print("\(quantity) pcs of \(name)")
+//              }
+//          }
       }
 }
 

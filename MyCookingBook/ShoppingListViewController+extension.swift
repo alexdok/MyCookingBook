@@ -30,7 +30,7 @@ extension ShoppingListViewController:  UITableViewDataSource, UITableViewDelegat
             let item = shoppingList[indexPath.row]
             let isChecked = checkedItems[indexPath.row]
             
-            cell.textLabel?.text = item.type
+            cell.textLabel?.text = "\(item.type)      \(item.measuresOfMeasurement)"
             cell.accessoryType = isChecked ? .checkmark : .none
         }
         return cell
