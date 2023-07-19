@@ -76,25 +76,73 @@
 		9017840F2A56AD6600D90D67 /* MyCookingBook */ = {
 			isa = PBXGroup;
 			children = (
-				901784102A56AD6600D90D67 /* AppDelegate.swift */,
-				901784122A56AD6600D90D67 /* SceneDelegate.swift */,
-				901784272A56ADC200D90D67 /* MainViewController.swift */,
-				907E38812A5F0D7D0001FBBE /* UIView+extension.swift */,
-				904A02142A5D4EFA000C84CF /* WebViewController.swift */,
-				907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */,
-				9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */,
-				9017842A2A56ADE400D90D67 /* ShoppingListViewController.swift */,
-				908D04172A67D1EB00957EA1 /* ShoppingListViewController+extension.swift */,
-				908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */,
-				904A02122A5D4DF8000C84CF /* Ingridient.swift */,
-				904A020F2A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld */,
+				908D041E2A67FEFC00957EA1 /* supportingFiles */,
+				908D04192A67FDF500957EA1 /* controllers */,
+				908D041D2A67FE5700957EA1 /* extensions */,
+				908D041C2A67FE3400957EA1 /* New Group */,
+				908D041B2A67FE2900957EA1 /* cells */,
+				908D041A2A67FE1A00957EA1 /* models */,
+			);
+			path = MyCookingBook;
+			sourceTree = "<group>";
+		};
+		908D04192A67FDF500957EA1 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
 				9017842B2A56ADE400D90D67 /* TableViewController.swift */,
+				9017842A2A56ADE400D90D67 /* ShoppingListViewController.swift */,
+				901784272A56ADC200D90D67 /* MainViewController.swift */,
+				9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */,
+				904A02142A5D4EFA000C84CF /* WebViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		908D041A2A67FE1A00957EA1 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				904A02122A5D4DF8000C84CF /* Ingridient.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		908D041B2A67FE2900957EA1 /* cells */ = {
+			isa = PBXGroup;
+			children = (
 				901784292A56ADE400D90D67 /* CustomeTableViewCell.swift */,
+				908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		908D041C2A67FE3400957EA1 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		908D041D2A67FE5700957EA1 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				907E38812A5F0D7D0001FBBE /* UIView+extension.swift */,
+				907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */,
+				908D04172A67D1EB00957EA1 /* ShoppingListViewController+extension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		908D041E2A67FEFC00957EA1 /* supportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				904A020F2A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld */,
 				9017841C2A56AD6600D90D67 /* Assets.xcassets */,
 				9017841E2A56AD6600D90D67 /* LaunchScreen.storyboard */,
 				901784212A56AD6600D90D67 /* Info.plist */,
+				901784122A56AD6600D90D67 /* SceneDelegate.swift */,
+				901784102A56AD6600D90D67 /* AppDelegate.swift */,
 			);
-			path = MyCookingBook;
+			path = supportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,7 +369,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4X682UQSZR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyCookingBook/Info.plist;
+				INFOPLIST_FILE = MyCookingBook/supportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -352,7 +400,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4X682UQSZR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyCookingBook/Info.plist;
+				INFOPLIST_FILE = MyCookingBook/supportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
