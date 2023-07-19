@@ -21,6 +21,8 @@
 		904A02152A5D4EFA000C84CF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A02142A5D4EFA000C84CF /* WebViewController.swift */; };
 		907E38802A5F0CC20001FBBE /* WebViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */; };
 		907E38822A5F0D7D0001FBBE /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E38812A5F0D7D0001FBBE /* UIView+extension.swift */; };
+		908D04162A67D06A00957EA1 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */; };
+		908D04182A67D1EB00957EA1 /* ShoppingListViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D04172A67D1EB00957EA1 /* ShoppingListViewController+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		904A02142A5D4EFA000C84CF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebViewController+extension.swift"; sourceTree = "<group>"; };
 		907E38812A5F0D7D0001FBBE /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
+		908D04172A67D1EB00957EA1 /* ShoppingListViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingListViewController+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 				907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */,
 				9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */,
 				9017842A2A56ADE400D90D67 /* ShoppingListViewController.swift */,
+				908D04172A67D1EB00957EA1 /* ShoppingListViewController+extension.swift */,
+				908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */,
 				904A02122A5D4DF8000C84CF /* Ingridient.swift */,
 				904A020F2A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld */,
 				9017842B2A56ADE400D90D67 /* TableViewController.swift */,
@@ -163,9 +169,11 @@
 			files = (
 				907E38822A5F0D7D0001FBBE /* UIView+extension.swift in Sources */,
 				901784302A56ADE400D90D67 /* NewRecipeViewController.swift in Sources */,
+				908D04182A67D1EB00957EA1 /* ShoppingListViewController+extension.swift in Sources */,
 				9017842F2A56ADE400D90D67 /* TableViewController.swift in Sources */,
 				901784112A56AD6600D90D67 /* AppDelegate.swift in Sources */,
 				907E38802A5F0CC20001FBBE /* WebViewController+extension.swift in Sources */,
+				908D04162A67D06A00957EA1 /* ShoppingListTableViewCell.swift in Sources */,
 				904A02152A5D4EFA000C84CF /* WebViewController.swift in Sources */,
 				9017842E2A56ADE400D90D67 /* ShoppingListViewController.swift in Sources */,
 				901784132A56AD6600D90D67 /* SceneDelegate.swift in Sources */,
