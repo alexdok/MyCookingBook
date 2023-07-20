@@ -13,7 +13,6 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         setupBackgroundColor()
 
         // Создание UIImageView
-        
         let screenHeight = UIScreen.main.bounds.height
         let thirdHeight = screenHeight / 3
         imageView = UIImageView(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: thirdHeight))

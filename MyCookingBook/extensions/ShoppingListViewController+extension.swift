@@ -23,7 +23,7 @@ extension ShoppingListViewController:  UITableViewDataSource, UITableViewDelegat
             guard let myCell = tableView.dequeueReusableCell(withIdentifier: "MyCustomCell", for: indexPath) as? ShoppingListTableViewCell else {
                 return UITableViewCell()
             }
-            myCell.buttonToAddNewCell.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+            myCell.buttonToAddNewCell.addTarget(self, action: #selector(addNewCellButtonTapped), for: .touchUpInside)
             return myCell
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

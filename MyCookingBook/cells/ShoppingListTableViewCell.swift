@@ -48,7 +48,3 @@ class ShoppingListTableViewCell: UITableViewCell {
         ])
     }
 }
-
-extension ShoppingListTableViewCell {
-    
-}

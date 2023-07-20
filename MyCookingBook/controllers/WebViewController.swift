@@ -4,7 +4,6 @@ import WebKit
 
 class WebViewController: UIViewController {
     
-    var selectedNews: String?
     var url = "https://journal.tinkoff.ru/chto-poest/"
     
     var progressView = UIProgressView()
@@ -15,7 +14,6 @@ class WebViewController: UIViewController {
         setupUI()
         
         self.progressView.progress = 0
-        title = selectedNews
         
         guard let url = URL(string: url) else { return }
         let request = URLRequest(url: url)

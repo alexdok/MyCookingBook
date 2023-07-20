@@ -79,7 +79,6 @@
 				908D041E2A67FEFC00957EA1 /* supportingFiles */,
 				908D04192A67FDF500957EA1 /* controllers */,
 				908D041D2A67FE5700957EA1 /* extensions */,
-				908D041C2A67FE3400957EA1 /* New Group */,
 				908D041B2A67FE2900957EA1 /* cells */,
 				908D041A2A67FE1A00957EA1 /* models */,
 			);
@@ -89,10 +88,10 @@
 		908D04192A67FDF500957EA1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9017842B2A56ADE400D90D67 /* TableViewController.swift */,
-				9017842A2A56ADE400D90D67 /* ShoppingListViewController.swift */,
 				901784272A56ADC200D90D67 /* MainViewController.swift */,
 				9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */,
+				9017842A2A56ADE400D90D67 /* ShoppingListViewController.swift */,
+				9017842B2A56ADE400D90D67 /* TableViewController.swift */,
 				904A02142A5D4EFA000C84CF /* WebViewController.swift */,
 			);
 			path = controllers;
@@ -113,13 +112,6 @@
 				908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */,
 			);
 			path = cells;
-			sourceTree = "<group>";
-		};
-		908D041C2A67FE3400957EA1 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		908D041D2A67FE5700957EA1 /* extensions */ = {

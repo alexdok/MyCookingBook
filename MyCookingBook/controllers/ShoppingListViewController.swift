@@ -45,16 +45,10 @@ class ShoppingListViewController: UIViewController {
         return newIngridient
     }
     
-    @objc func addButtonTapped() {
-        // Действие при нажатии кнопки "Добавить"
-        // Увеличиваем количество строк
+    @objc func addNewCellButtonTapped() {
         createAlertController()
-//        shoppingList.append(Ingridient(type: "test", measuresOfMeasurement: .init(volume: 5)))
-//        checkedItems.append(false)
-       
     }
    
-    
       func createAlertController() {
           let alert = UIAlertController(title: "Add New Item to Shopping List", message: "Add name and quantity", preferredStyle: .alert)
           
@@ -79,7 +73,7 @@ class ShoppingListViewController: UIViewController {
           }
           
           // Добавляем кнопку "Сохранить"
-        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak alert] _ in
+          let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak alert] _ in
               // Получаем введенные значения из текстовых полей
               if let nameTextField = alert?.textFields?.first, let quantityTextField = alert?.textFields?.last {
                   let itemName = nameTextField.text ?? ""
@@ -121,22 +115,7 @@ class ShoppingListViewController: UIViewController {
           shoppingList.append(newItem)
           checkedItems.append(false)
           numberOfRows += 1
-          
-          // Обновляем таблицу
           tableView.reloadData()
-//          if let selectedUnit = unit {
-//              switch selectedUnit {
-//              case .kilograms:
-//                  // Добавить обработку для единицы измерения килограмм
-//                  print("\(quantity) kg of \(name)")
-//              case .liters:
-//                  // Добавить обработку для единицы измерения литры
-//                  print("\(quantity) L of \(name)")
-//              case .things:
-//                  // Добавить обработку для единицы измерения штуки
-//                  print("\(quantity) pcs of \(name)")
-//              }
-//          }
       }
 }
 
