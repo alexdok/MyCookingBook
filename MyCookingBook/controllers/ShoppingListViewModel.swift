@@ -1,6 +1,7 @@
 import Foundation
 
 class ShoppingListViewModel {
+    
      var selectedUnit: Units = .kilograms
      var shoppingList: [Ingridient] = []
      var checkedItems: [Bool] = []

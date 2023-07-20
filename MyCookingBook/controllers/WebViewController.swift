@@ -5,7 +5,6 @@ import WebKit
 class WebViewController: UIViewController {
     
     var url = "https://journal.tinkoff.ru/chto-poest/"
-    
     var progressView = UIProgressView()
     var webView = WKWebView(frame: CGRect(origin: .zero, size: .zero))
     
@@ -14,7 +13,6 @@ class WebViewController: UIViewController {
         setupUI()
         
         self.progressView.progress = 0
-        
         guard let url = URL(string: url) else { return }
         let request = URLRequest(url: url)
         

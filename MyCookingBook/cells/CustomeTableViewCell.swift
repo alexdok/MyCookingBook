@@ -2,6 +2,7 @@ import UIKit
 
 
 class CustomTableViewCell: UITableViewCell {
+    
     let leftImageView: UIImageView = {
         let imageView = UIImageView()
         // Настройте свойства изображения

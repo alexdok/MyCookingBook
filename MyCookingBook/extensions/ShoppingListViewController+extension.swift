@@ -8,6 +8,7 @@
 import UIKit
 
 extension ShoppingListViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows + 1
     }

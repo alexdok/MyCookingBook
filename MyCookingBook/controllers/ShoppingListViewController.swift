@@ -7,6 +7,7 @@ enum Units {
 }
 
 class ShoppingListViewController: UIViewController {
+    
     let tableView = UITableView()
     let viewModel = ShoppingListViewModel()
     var selectedUnit: Units = .kilograms
