@@ -10,7 +10,7 @@ class ShoppingListViewController: UIViewController {
     var selectedUnit: Units = .kilograms
     var shoppingList: [Ingridient] = []
     var checkedItems: [Bool] = []
-     var numberOfRows = 0
+    var numberOfRows = 0
     let tableView = UITableView()
     
     override func viewDidLoad() {
@@ -19,7 +19,7 @@ class ShoppingListViewController: UIViewController {
         shoppingList.append(createNewitem(name: "греча", quantity: 0.5, units: .kilograms))
         shoppingList.append(createNewitem(name: "молоко", quantity: 1, units: .liters))
         shoppingList.append(createNewitem(name: "fanta", quantity: 1, units: .things))
-        checkedItems = [false,false,false,false]
+        addCheckMarkItems()
 
         numberOfRows = shoppingList.count
         tableView.frame = view.bounds
@@ -29,6 +29,12 @@ class ShoppingListViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(ShoppingListTableViewCell.self, forCellReuseIdentifier: "MyCustomCell")
         view.addSubview(tableView)
+    }
+    
+    func addCheckMarkItems() {
+        for _ in shoppingList {
+            checkedItems.append(false)
+        }
     }
     
     private func createNewitem(name: String, quantity: Double, units: Units) -> Ingridient {
