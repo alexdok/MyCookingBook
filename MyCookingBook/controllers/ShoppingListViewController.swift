@@ -66,7 +66,6 @@ class ShoppingListViewController: UIViewController {
                 guard let self = self else { return }
                 viewModel.saveItem(name: itemName, quantity: itemQuantity, unit: self.selectedUnit)
                 tableView.reloadData()
-                //                     self.saveItem(name: itemName, quantity: itemQuantity, unit: self.selectedUnit)
             }
         }
         
