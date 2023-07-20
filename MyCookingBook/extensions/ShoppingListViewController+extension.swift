@@ -17,9 +17,7 @@ extension ShoppingListViewController: UITableViewDataSource, UITableViewDelegate
         
         if indexPath.row == viewModel.numberOfRows {
             // Инициализируем ячейку с кнопкой
-            guard let myCell = tableView.dequeueReusableCell(withIdentifier: "MyCustomCell", for: indexPath) as? ShoppingListTableViewCell else {
-                return UITableViewCell()
-            }
+            guard let myCell = tableView.dequeueReusableCell(withIdentifier: "MyCustomCell", for: indexPath) as? ShoppingListTableViewCell else { return UITableViewCell() }
             myCell.buttonToAddNewCell.addTarget(self, action: #selector(addNewCellButtonTapped), for: .touchUpInside)
             return myCell
         } else {
