@@ -1,7 +1,7 @@
 enum MeasuresOfMeasurement {
     case weight(Double, String)
     case volume(Double, String)
-    case pices(Double, String)
+    case pieces(Double, String)
     
     init(weight: Double) {
         self = .weight(weight, "kilograms")
@@ -12,7 +12,7 @@ enum MeasuresOfMeasurement {
     }
     
     init(amount: Double) {
-        self = .pices(amount, "pices")
+        self = .pieces(amount, "pices")
     }
 }
 
