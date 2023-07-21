@@ -1,4 +1,4 @@
-enum MeasuresOfMeasurement {
+enum MeasuresOfMeasurement: Codable {
     
     case weight(Double, String)
     case volume(Double, String)
@@ -17,7 +17,7 @@ enum MeasuresOfMeasurement {
     }
 }
 
-struct Ingridient {
+struct Ingridient: Codable {
     let type: String
     let measuresOfMeasurement: MeasuresOfMeasurement
 }

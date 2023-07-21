@@ -14,6 +14,7 @@ class ShoppingListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.loadValuesToShoppingList()
         
         tableView.frame = view.bounds
         tableView.dataSource = self
@@ -23,10 +24,11 @@ class ShoppingListViewController: UIViewController {
         tableView.register(ShoppingListTableViewCell.self, forCellReuseIdentifier: "MyCustomCell")
         view.addSubview(tableView)
         
-        viewModel.addNewItem(name: "яблоко", quantity: 5)
-        viewModel.addNewItem(name: "греча", quantity: 0.5)
-        viewModel.addNewItem(name: "молоко", quantity: 1)
-        viewModel.addNewItem(name: "fanta", quantity: 1)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.saveState()
     }
     
     @objc func addNewCellButtonTapped() {

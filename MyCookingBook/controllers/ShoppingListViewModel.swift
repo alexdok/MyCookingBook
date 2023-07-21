@@ -2,14 +2,14 @@ import Foundation
 
 class ShoppingListViewModel {
     
-     var selectedUnit: Units = .kilograms
-     var shoppingList: [Ingridient] = []
-     var checkedItems: [Bool] = []
-
+    var selectedUnit: Units = .kilograms
+    var shoppingList: [Ingridient] = []
+    var checkedItems: [Bool] = []
+    
     var numberOfRows: Int {
         return shoppingList.count
     }
-
+    
     func createNewItem(name: String, quantity: Double, units: Units) -> Ingridient {
         let newIngridient: Ingridient
         switch units {
@@ -22,21 +22,64 @@ class ShoppingListViewModel {
         }
         return newIngridient
     }
-
+    
     func addNewItem(name: String, quantity: Double) {
         let newItem = createNewItem(name: name, quantity: quantity, units: selectedUnit)
         shoppingList.append(newItem)
         checkedItems.append(false)
     }
     
-          func saveItem(name: String, quantity: Double, unit: Units) {
-            let newItem = createNewItem(name: name, quantity: quantity, units: unit)
-              shoppingList.append(newItem)
-              checkedItems.append(false)
-          }
-
+    func saveItem(name: String, quantity: Double, unit: Units) {
+        let newItem = createNewItem(name: name, quantity: quantity, units: unit)
+        shoppingList.append(newItem)
+        checkedItems.append(false)
+    }
+    
     func toggleItemCheckedStatus(at index: Int) {
         guard index >= 0 && index < checkedItems.count else { return }
         checkedItems[index].toggle()
+    }
+//
+//    func saveState() {
+//        UserDefaults.standard.set(shoppingList, forKey: "shoppingList")
+//        UserDefaults.standard.set(checkedItems, forKey: "checkedItems")
+//    }
+//
+//    func loadValuesToShoppingList() {
+//        shoppingList = UserDefaults.standard.value(forKey: "shoppingList") as? [Ingridient] ?? []
+//        checkedItems = UserDefaults.standard.value(forKey: "checkedItems") as? [Bool] ?? []
+//    }
+  
+    func saveState() {
+        do {
+            let encoder = JSONEncoder()
+            let shoppingListData = try encoder.encode(shoppingList)
+            UserDefaults.standard.set(shoppingListData, forKey: "shoppingList")
+            
+            let checkedItemsData = try encoder.encode(checkedItems)
+            UserDefaults.standard.set(checkedItemsData, forKey: "checkedItems")
+        } catch {
+            print("Ошибка при кодировании данных: \(error)")
+        }
+    }
+
+    func loadValuesToShoppingList() {
+        do {
+            if let shoppingListData = UserDefaults.standard.data(forKey: "shoppingList") {
+                let decoder = JSONDecoder()
+                shoppingList = try decoder.decode([Ingridient].self, from: shoppingListData)
+            } else {
+                shoppingList = []
+            }
+            
+            if let checkedItemsData = UserDefaults.standard.data(forKey: "checkedItems") {
+                let decoder = JSONDecoder()
+                checkedItems = try decoder.decode([Bool].self, from: checkedItemsData)
+            } else {
+                checkedItems = []
+            }
+        } catch {
+            print("Ошибка при декодировании данных: \(error)")
+        }
     }
 }
