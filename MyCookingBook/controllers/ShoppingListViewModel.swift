@@ -39,16 +39,6 @@ class ShoppingListViewModel {
         guard index >= 0 && index < checkedItems.count else { return }
         checkedItems[index].toggle()
     }
-//
-//    func saveState() {
-//        UserDefaults.standard.set(shoppingList, forKey: "shoppingList")
-//        UserDefaults.standard.set(checkedItems, forKey: "checkedItems")
-//    }
-//
-//    func loadValuesToShoppingList() {
-//        shoppingList = UserDefaults.standard.value(forKey: "shoppingList") as? [Ingridient] ?? []
-//        checkedItems = UserDefaults.standard.value(forKey: "checkedItems") as? [Bool] ?? []
-//    }
   
     func saveState() {
         do {
