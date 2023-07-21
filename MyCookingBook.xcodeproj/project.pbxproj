@@ -24,6 +24,7 @@
 		907E38822A5F0D7D0001FBBE /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E38812A5F0D7D0001FBBE /* UIView+extension.swift */; };
 		908D04162A67D06A00957EA1 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */; };
 		908D04182A67D1EB00957EA1 /* ShoppingListViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D04172A67D1EB00957EA1 /* ShoppingListViewController+extension.swift */; };
+		90CAE5B82A6AB19C001E86AA /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CAE5B72A6AB19C001E86AA /* NetworkMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		907E38812A5F0D7D0001FBBE /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 		908D04172A67D1EB00957EA1 /* ShoppingListViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingListViewController+extension.swift"; sourceTree = "<group>"; };
+		90CAE5B72A6AB19C001E86AA /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				908D041D2A67FE5700957EA1 /* extensions */,
 				908D041B2A67FE2900957EA1 /* cells */,
 				908D041A2A67FE1A00957EA1 /* models */,
+				90CAE5B92A6AB1B5001E86AA /* managers */,
 			);
 			path = MyCookingBook;
 			sourceTree = "<group>";
@@ -138,6 +141,14 @@
 				901784102A56AD6600D90D67 /* AppDelegate.swift */,
 			);
 			path = supportingFiles;
+			sourceTree = "<group>";
+		};
+		90CAE5B92A6AB1B5001E86AA /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				90CAE5B72A6AB19C001E86AA /* NetworkMonitor.swift */,
+			);
+			path = managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				907E38822A5F0D7D0001FBBE /* UIView+extension.swift in Sources */,
+				90CAE5B82A6AB19C001E86AA /* NetworkMonitor.swift in Sources */,
 				901784302A56ADE400D90D67 /* NewRecipeViewController.swift in Sources */,
 				908D04182A67D1EB00957EA1 /* ShoppingListViewController+extension.swift in Sources */,
 				9017842F2A56ADE400D90D67 /* TableViewController.swift in Sources */,
