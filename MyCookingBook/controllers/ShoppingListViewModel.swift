@@ -23,12 +23,6 @@ class ShoppingListViewModel {
         return newIngridient
     }
     
-//    func addNewItem(name: String, quantity: Double) {
-//        let newItem = createNewItem(name: name, quantity: quantity, units: selectedUnit)
-//        shoppingList.append(newItem)
-//        checkedItems.append(false)
-//    }
-    
     func saveItem(name: String, quantity: Double, unit: Units) {
         let newItem = createNewItem(name: name, quantity: quantity, units: unit)
         shoppingList.append(newItem)
