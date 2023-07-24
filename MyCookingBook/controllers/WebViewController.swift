@@ -4,6 +4,7 @@ import WebKit
 
 class WebViewController: UIViewController {
     
+    let networkMonitor = NetworkMonitor.shared
     var url = "https://journal.tinkoff.ru/chto-poest/"
     var progressView = UIProgressView()
     var webView = WKWebView(frame: CGRect(origin: .zero, size: .zero))
@@ -11,6 +12,8 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        networkMonitor.startMonitoring()
+        checkConnection()
         
         self.progressView.progress = 0
         guard let url = URL(string: url) else { return }
@@ -25,6 +28,11 @@ class WebViewController: UIViewController {
                             context: nil)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        networkMonitor.stopMonitoring()
+    }
+    
     override func observeValue(forKeyPath keyPath: String?,
                                of object: Any?,
                                change: [NSKeyValueChangeKey : Any]?,
@@ -32,6 +40,19 @@ class WebViewController: UIViewController {
         if keyPath == "estimatedProgress" {
             progressView.progress = Float(webView.estimatedProgress)
         }
+    }
+    
+    private func checkConnection() {
+        if !networkMonitor.isReachable {
+            createAlertController()
+        }
+    }
+    
+    private func createAlertController() {
+        let alretController = UIAlertController(title: "No internet connection", message: "Please check your internet connection", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "ok", style: .default)
+        alretController.addAction(okButton)
+        present(alretController, animated: true)
     }
     
     private func setupUI() {
