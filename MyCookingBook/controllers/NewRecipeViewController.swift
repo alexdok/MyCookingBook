@@ -1,6 +1,6 @@
 import UIKit
 
-class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewRecipeViewController: UIViewController {
     
     var imageView: UIImageView!
     var ingredientsButton: UIButton!
@@ -16,7 +16,7 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         // Создание UIImageView
         let screenHeight = UIScreen.main.bounds.height
         let thirdHeight = screenHeight / 3
-        imageView = UIImageView(frame: CGRect(x: 0, y: 20, width: view.frame.width, height: thirdHeight))
+        imageView = UIImageView(frame: CGRect(x: 0, y: 60 , width: view.frame.width, height: thirdHeight))
         imageView.backgroundColor = .green
         imageView.layer.cornerRadius = imageView.frame.height / 2
         imageView.layer.shadowColor = UIColor.black.cgColor
@@ -115,41 +115,6 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     @objc func goToShoppingList(sender: UIButton!) {
         goToNewController(viewController: ShoppingListViewController())
     }
-
-    @objc func imageTapped() {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        
-        let alertController = UIAlertController(title: "Выберите источник изображения", message: nil, preferredStyle: .actionSheet)
-        
-        let cameraAction = UIAlertAction(title: "Камера", style: .default) { (action) in
-            imagePickerController.sourceType = .camera
-            self.present(imagePickerController, animated: true, completion: nil)
-        }
-        alertController.addAction(cameraAction)
-        
-        let galleryAction = UIAlertAction(title: "Галерея", style: .default) { (action) in
-            imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController, animated: true, completion: nil)
-        }
-        alertController.addAction(galleryAction)
-        
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage {
-            imageView.image = image
-        }
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
     
     @objc func expandButtonTapped() {
         textView.resignFirstResponder() // Скрытие клавиатуры
@@ -175,15 +140,3 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     }
 }
 
-extension NewRecipeViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        // Скрытие кнопки расширения при начале редактирования
-        expandButton.isHidden = true
-    }
-}
-
-extension NewRecipeViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return nameTF.resignFirstResponder()
-    }
-}
