@@ -7,6 +7,7 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     var textView: UITextView!
     var originalTextViewFrame: CGRect!
     var expandButton: UIButton!
+    var nameTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +34,20 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         ingredientsButton.addTarget(self, action: #selector(goToShoppingList), for: .touchUpInside)
         view.addSubview(ingredientsButton)
         
+        // создаем UITextField для названия
+        let nameTFY = buttonY  + buttonHeight
+        let nameTFHeight: CGFloat = 50
+        nameTF = UITextField(frame: CGRect(x: 0, y: nameTFY, width: view.frame.width, height: nameTFHeight))
+        nameTF.textAlignment = .center
+        nameTF.placeholder = "название блюда"
+        nameTF.backgroundColor = UIColor(red: 1, green: 1, blue: 0.9, alpha: 1)
+        nameTF.borderStyle = .line
+        nameTF.delegate = self
+        view.addSubview(nameTF)
+        
         // Создание UITextView
-        let textViewY = ingredientsButton.frame.maxY
-        let textViewHeight = screenHeight - thirdHeight - buttonHeight
+        let textViewY = nameTF.frame.maxY
+        let textViewHeight = screenHeight - thirdHeight - buttonHeight - nameTFHeight
         textView = UITextView(frame: CGRect(x: 0, y: textViewY, width: view.frame.width, height: textViewHeight))
         originalTextViewFrame = textView.frame // Сохранение исходного размера UITextView
         view.addSubview(textView)
@@ -96,12 +108,12 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    func toNewController(viewController: UIViewController) {
+    func goToNewController(viewController: UIViewController) {
            navigationController?.pushViewController(viewController, animated: true)
        }
     
     @objc func goToShoppingList(sender: UIButton!) {
-        toNewController(viewController: ShoppingListViewController())
+        goToNewController(viewController: ShoppingListViewController())
     }
 
     @objc func imageTapped() {
@@ -148,15 +160,17 @@ class NewRecipeViewController: UIViewController, UIImagePickerControllerDelegate
     @objc func keyboardWillChangeFrame(_ notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         
-        if let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-            // Обновление высоты UITextView при появлении клавиатуры
-            let newTextViewHeight = view.frame.height 
-            textView.frame.size.height = newTextViewHeight
-            textView.frame.origin.y = 0
-            
-            // Появление кнопки расширения над клавиатурой
-            expandButton.frame.origin.y = keyboardFrame.origin.y - expandButton.frame.height - 8
-            expandButton.isHidden = false
+        if !nameTF.isFirstResponder {
+            if let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                // Обновление высоты UITextView при появлении клавиатуры
+                let newTextViewHeight = view.frame.height
+                textView.frame.size.height = newTextViewHeight
+                textView.frame.origin.y = 0
+                
+                // Появление кнопки расширения над клавиатурой
+                expandButton.frame.origin.y = keyboardFrame.origin.y - expandButton.frame.height - 8
+                expandButton.isHidden = false
+            }
         }
     }
 }
@@ -165,5 +179,11 @@ extension NewRecipeViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         // Скрытие кнопки расширения при начале редактирования
         expandButton.isHidden = true
+    }
+}
+
+extension NewRecipeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return nameTF.resignFirstResponder()
     }
 }
