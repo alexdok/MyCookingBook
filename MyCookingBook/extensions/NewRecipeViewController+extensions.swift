@@ -21,7 +21,6 @@ extension NewRecipeViewController: UITextFieldDelegate {
 }
 
 extension NewRecipeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     @objc func imageTapped() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
