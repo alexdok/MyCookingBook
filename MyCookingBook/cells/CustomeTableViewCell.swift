@@ -1,6 +1,5 @@
 import UIKit
 
-
 class CustomTableViewCell: UITableViewCell {
     
     let leftImageView: UIImageView = {

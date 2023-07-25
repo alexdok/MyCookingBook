@@ -21,9 +21,11 @@ class NewRecipeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        expandButtonTapped()
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.expandButtonTapped()
+        }
     }
-    
+
     private func createUI() {
         // Создание UIImageView
         let screenHeight = UIScreen.main.bounds.height
@@ -114,8 +116,10 @@ class NewRecipeViewController: UIViewController {
     
     @objc func goToShoppingList(sender: UIButton!) {
         let viewController = ShoppingListViewController()
-        viewController.viewModel.nameOfRecipe = nameTF.text
-        goToNewController(viewController: viewController)
+        if let recipeName = nameTF.text {
+            viewController.viewModel.nameOfRecipe = recipeName
+            goToNewController(viewController: viewController)
+        }
     }
     
     @objc func expandButtonTapped() {

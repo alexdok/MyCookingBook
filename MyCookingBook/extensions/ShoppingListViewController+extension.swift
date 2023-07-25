@@ -1,10 +1,3 @@
-//
-//  ShoppingListViewController+extension.swift
-//  MyCookingBook
-//
-//  Created by алексей ганзицкий on 19.07.2023.
-//
-
 import UIKit
 
 extension ShoppingListViewController: UITableViewDataSource, UITableViewDelegate {
