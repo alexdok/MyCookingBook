@@ -5,6 +5,7 @@ class ShoppingListViewModel {
     var selectedUnit: Units = .kilograms
     var shoppingList: [Ingridient] = []
     var checkedItems: [Bool] = []
+    var nameOfRecipe: String?
     
     var numberOfRows: Int {
         return shoppingList.count
@@ -38,10 +39,10 @@ class ShoppingListViewModel {
         do {
             let encoder = JSONEncoder()
             let shoppingListData = try encoder.encode(shoppingList)
-            UserDefaults.standard.set(shoppingListData, forKey: "shoppingList")
+            UserDefaults.standard.set(shoppingListData, forKey: "shoppingList" + "\(nameOfRecipe ?? "")")
             
             let checkedItemsData = try encoder.encode(checkedItems)
-            UserDefaults.standard.set(checkedItemsData, forKey: "checkedItems")
+            UserDefaults.standard.set(checkedItemsData, forKey: "checkedItems" + "\(nameOfRecipe ?? "")")
         } catch {
             print("Ошибка при кодировании данных: \(error)")
         }
@@ -49,14 +50,14 @@ class ShoppingListViewModel {
 
     func loadValuesToShoppingList() {
         do {
-            if let shoppingListData = UserDefaults.standard.data(forKey: "shoppingList") {
+            if let shoppingListData = UserDefaults.standard.data(forKey: "shoppingList" + "\(nameOfRecipe ?? "")") {
                 let decoder = JSONDecoder()
                 shoppingList = try decoder.decode([Ingridient].self, from: shoppingListData)
             } else {
                 shoppingList = []
             }
             
-            if let checkedItemsData = UserDefaults.standard.data(forKey: "checkedItems") {
+            if let checkedItemsData = UserDefaults.standard.data(forKey: "checkedItems" + "\(nameOfRecipe ?? "")") {
                 let decoder = JSONDecoder()
                 checkedItems = try decoder.decode([Bool].self, from: checkedItemsData)
             } else {

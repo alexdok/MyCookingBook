@@ -11,8 +11,20 @@ class NewRecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createUI()
         setupBackgroundColor()
-
+        addRecognizerTapToImage()
+        addExpandButton()
+        // Добавление наблюдателя для отслеживания изменений в высоте клавиатуры
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        expandButtonTapped()
+    }
+    
+    private func createUI() {
         // Создание UIImageView
         let screenHeight = UIScreen.main.bounds.height
         let thirdHeight = screenHeight / 3
@@ -23,8 +35,6 @@ class NewRecipeViewController: UIViewController {
         imageView.layer.shadowOffset = CGSize(width: 2, height: 2)
         imageView.layer.shadowOpacity = 0.5
         view.addSubview(imageView)
-        
-        addRecognizerTapToImage()
         
         // Создание UIButton
         let buttonY = imageView.frame.maxY
@@ -57,16 +67,6 @@ class NewRecipeViewController: UIViewController {
         textView.isScrollEnabled = true
         textView.showsVerticalScrollIndicator = true
         textView.alwaysBounceVertical = true
-        
-        addExpandButton()
-        
-        // Добавление наблюдателя для отслеживания изменений в высоте клавиатуры
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        expandButtonTapped()
     }
     
     func addButonIngrediensts() {
@@ -113,7 +113,9 @@ class NewRecipeViewController: UIViewController {
        }
     
     @objc func goToShoppingList(sender: UIButton!) {
-        goToNewController(viewController: ShoppingListViewController())
+        let viewController = ShoppingListViewController()
+        viewController.viewModel.nameOfRecipe = nameTF.text
+        goToNewController(viewController: viewController)
     }
     
     @objc func expandButtonTapped() {
