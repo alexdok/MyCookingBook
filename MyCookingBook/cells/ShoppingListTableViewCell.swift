@@ -50,8 +50,4 @@ class ShoppingListTableViewCell: UITableViewCell {
             buttonToAddNewCell.heightAnchor.constraint(equalTo: contentView.heightAnchor),
         ])
     }
-    
-    func configure(with item: Ingridient) {
-        textLabel?.text = "\(item.type)      \(item.measuresOfMeasurement)"
-    }
 }

@@ -26,10 +26,24 @@ extension ShoppingListViewController: UITableViewDataSource, UITableViewDelegate
             let item = viewModel.shoppingList[indexPath.row]
             let isChecked = viewModel.checkedItems[indexPath.row]
             
-            cell.textLabel?.text = "\(item.type)      \(item.measuresOfMeasurement)"
+            cell.textLabel?.text = configure(with: item)
             cell.accessoryType = isChecked ? .checkmark : .none
         }
         return cell
+    }
+    
+    func configure(with item: Ingridient) -> String {
+        let type = "\(item.type)"
+        let measure = item.measuresOfMeasurement
+        
+        switch measure {
+        case .weight(let value, let unit):
+            return type + "  " + "\(value)" + " " + "\(unit)"
+        case .volume(let value, let unit):
+            return type + "  " + "\(value)" + " " + "\(unit)"
+        case .pieces(let value, let unit):
+            return type + "  " + "\(value)" + " " + "\(unit)"
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
