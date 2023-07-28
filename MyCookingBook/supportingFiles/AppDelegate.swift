@@ -6,10 +6,23 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Core Data stack
+
+      lazy var persistentContainer: NSPersistentContainer = {
+          let container = NSPersistentContainer(name: "RecipeModel")
+          container.loadPersistentStores(completionHandler: { (_, error) in
+              if let error = error as NSError? {
+                  fatalError("Ошибка при загрузке хранилища данных: \(error), \(error.userInfo)")
+              }
+          })
+          return container
+      }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true

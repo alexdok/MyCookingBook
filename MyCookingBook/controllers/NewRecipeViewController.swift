@@ -1,20 +1,25 @@
 import UIKit
+import CoreData
 
 class NewRecipeViewController: UIViewController {
-    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var imageView: UIImageView!
     var ingredientsButton: UIButton!
     var textView: UITextView!
     var originalTextViewFrame: CGRect!
     var expandButton: UIButton!
     var nameTF: UITextField!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         createUI()
         setupBackgroundColor()
         addRecognizerTapToImage()
         addExpandButton()
+        loadRecipe()
+      
         // Добавление наблюдателя для отслеживания изменений в высоте клавиатуры
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
@@ -25,13 +30,55 @@ class NewRecipeViewController: UIViewController {
             self.expandButtonTapped()
         }
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let image = imageView.image else { return }
+        createNewRecipeInDataBase(image: image)
+    }
+    // test
+    func createNewRecipeInDataBase(image: UIImage) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            print("Ошибка при конвертировании изображения в данные")
+            return
+        }
+       let newRecipe = Recipe(context: context)
+        newRecipe.name = nameTF.text ?? ""
+        newRecipe.text = textView.text
+        newRecipe.imageFood = imageData
+        do {
+            try context.save()
+        } catch {
+            print("Ошибка при сохранении: \(error)")
+        }
+    }
+    
+    func loadRecipe() {
+        let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
 
+        do {
+            let currentrecipe = try context.fetch(fetchRequest)
+            for recipe in currentrecipe {
+                print("Имя: \(recipe.name ?? "Без имени"), text: \(String(describing: recipe.text))")
+                nameTF.text = recipe.name
+                textView.text = recipe.text
+                if let data = recipe.imageFood {
+                    imageView.image = UIImage(data: data)
+                }
+            }
+        } catch {
+            print("Ошибка при запросе данных: \(error)")
+        }
+
+    }
+    // end test
+    
     private func createUI() {
         // Создание UIImageView
         let screenHeight = UIScreen.main.bounds.height
         let thirdHeight = screenHeight / 3
         imageView = UIImageView(frame: CGRect(x: 0, y: 60 , width: view.frame.width, height: thirdHeight))
         imageView.backgroundColor = .green
+        imageView.clipsToBounds = true
         imageView.layer.cornerRadius = imageView.frame.height / 2
         imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.layer.shadowOffset = CGSize(width: 2, height: 2)

@@ -4,7 +4,7 @@ class MainViewController: UIViewController {
     
     let buttonSize = CGSize(width: 200, height: 50)
     var buttonsArray: [UIButton] = []
-    
+    var array: Array<String> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         createBackgroundColor()

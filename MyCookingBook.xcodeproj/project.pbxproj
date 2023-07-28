@@ -17,10 +17,10 @@
 		9017842F2A56ADE400D90D67 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017842B2A56ADE400D90D67 /* TableViewController.swift */; };
 		901784302A56ADE400D90D67 /* NewRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */; };
 		9031BC062A6EAAE900346311 /* NewRecipeViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9031BC052A6EAAE900346311 /* NewRecipeViewController+extensions.swift */; };
-		904A02112A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 904A020F2A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld */; };
 		904A02132A5D4DF8000C84CF /* Ingridient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A02122A5D4DF8000C84CF /* Ingridient.swift */; };
 		904A02152A5D4EFA000C84CF /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904A02142A5D4EFA000C84CF /* WebViewController.swift */; };
 		9062B6732A6966CF009FF09C /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062B6722A6966CF009FF09C /* ShoppingListViewModel.swift */; };
+		907C38842A73E06F005E46D1 /* RecipeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 907C38822A73E06F005E46D1 /* RecipeModel.xcdatamodeld */; };
 		907E38802A5F0CC20001FBBE /* WebViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */; };
 		907E38822A5F0D7D0001FBBE /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907E38812A5F0D7D0001FBBE /* UIView+extension.swift */; };
 		908D04162A67D06A00957EA1 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */; };
@@ -41,10 +41,10 @@
 		9017842B2A56ADE400D90D67 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9017842C2A56ADE400D90D67 /* NewRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecipeViewController.swift; sourceTree = "<group>"; };
 		9031BC052A6EAAE900346311 /* NewRecipeViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewRecipeViewController+extensions.swift"; sourceTree = "<group>"; };
-		904A02102A5D4D8E000C84CF /* MyRecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyRecipeModel.xcdatamodel; sourceTree = "<group>"; };
 		904A02122A5D4DF8000C84CF /* Ingridient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingridient.swift; sourceTree = "<group>"; };
 		904A02142A5D4EFA000C84CF /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9062B6722A6966CF009FF09C /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
+		907C38832A73E06F005E46D1 /* RecipeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeModel.xcdatamodel; sourceTree = "<group>"; };
 		907E387F2A5F0CC20001FBBE /* WebViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebViewController+extension.swift"; sourceTree = "<group>"; };
 		907E38812A5F0D7D0001FBBE /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		908D04152A67D06A00957EA1 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		908D041E2A67FEFC00957EA1 /* supportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				904A020F2A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld */,
+				907C38822A73E06F005E46D1 /* RecipeModel.xcdatamodeld */,
 				9017841C2A56AD6600D90D67 /* Assets.xcassets */,
 				9017841E2A56AD6600D90D67 /* LaunchScreen.storyboard */,
 				901784212A56AD6600D90D67 /* Info.plist */,
@@ -235,9 +235,9 @@
 				907E38802A5F0CC20001FBBE /* WebViewController+extension.swift in Sources */,
 				908D04162A67D06A00957EA1 /* ShoppingListTableViewCell.swift in Sources */,
 				904A02152A5D4EFA000C84CF /* WebViewController.swift in Sources */,
+				907C38842A73E06F005E46D1 /* RecipeModel.xcdatamodeld in Sources */,
 				9017842E2A56ADE400D90D67 /* ShoppingListViewController.swift in Sources */,
 				901784132A56AD6600D90D67 /* SceneDelegate.swift in Sources */,
-				904A02112A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld in Sources */,
 				901784282A56ADC200D90D67 /* MainViewController.swift in Sources */,
 				9017842D2A56ADE400D90D67 /* CustomeTableViewCell.swift in Sources */,
 				904A02132A5D4DF8000C84CF /* Ingridient.swift in Sources */,
@@ -458,13 +458,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		904A020F2A5D4D8E000C84CF /* MyRecipeModel.xcdatamodeld */ = {
+		907C38822A73E06F005E46D1 /* RecipeModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				904A02102A5D4D8E000C84CF /* MyRecipeModel.xcdatamodel */,
+				907C38832A73E06F005E46D1 /* RecipeModel.xcdatamodel */,
 			);
-			currentVersion = 904A02102A5D4D8E000C84CF /* MyRecipeModel.xcdatamodel */;
-			path = MyRecipeModel.xcdatamodeld;
+			currentVersion = 907C38832A73E06F005E46D1 /* RecipeModel.xcdatamodel */;
+			path = RecipeModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
