@@ -15,7 +15,6 @@ class NewRecipeViewModel {
     var imageRecipe: UIImage?
     var recipe: Bindable<Recipe>?
     
-    
     func createNewRecipeInDataBase(image: UIImage) {
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
             print("Ошибка при конвертировании изображения в данные")
@@ -31,6 +30,7 @@ class NewRecipeViewModel {
             print("Ошибка при сохранении: \(error)")
         }
     }
+    
     // заглушка чтобы не плодить базу
     func loadRecipe() {
         let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
@@ -58,7 +58,6 @@ class NewRecipeViewModel {
     }
     
     func deleteRecipe(name: String) {
-        
         let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "name == %@", name)
         
