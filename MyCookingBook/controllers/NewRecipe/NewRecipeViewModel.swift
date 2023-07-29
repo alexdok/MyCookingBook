@@ -31,7 +31,7 @@ class NewRecipeViewModel {
             print("Ошибка при сохранении: \(error)")
         }
     }
-    
+    // заглушка чтобы не плодить базу
     func loadRecipe() {
         let fetchRequest: NSFetchRequest<Recipe> = Recipe.fetchRequest()
 

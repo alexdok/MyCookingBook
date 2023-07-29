@@ -51,6 +51,7 @@ class ShoppingListViewController: UIViewController {
             // Добавляем переключатель между единицами измерения
             let unitsSegmentedControl = UISegmentedControl(items: ["kg", "L", "pcs"])
             unitsSegmentedControl.selectedSegmentIndex = 0 // Устанавливаем выбранной по умолчанию первую единицу измерения (кг)
+            self.selectedUnit = .kilograms
             textField.rightView = unitsSegmentedControl
             textField.rightViewMode = .always
             
